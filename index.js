@@ -2,7 +2,9 @@ import  express  from "express";
 import 'dotenv/config';
 import cors from "cors";
 import { userRoutes } from "./server/app/routes/user.routes.js";
+import { bookRoutes } from "./server/app/routes/book.routes.js";
 import { connection } from "./server/config/database.js"
+import { consultRoutes } from "./server/app/routes/consult.routes.js";
 
 connection();
 
@@ -35,7 +37,8 @@ router.get('/', (req, res) => {
 
 server.use('/', router);
 server.use("/users", userRoutes);
-
+server.use("/books", bookRoutes);
+server.use("/consults", consultRoutes);
 
 const serverListen = server.listen(PORT, () => {
     console.log(`Node server listening on port http:${PORT}`)

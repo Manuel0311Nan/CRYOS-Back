@@ -23,18 +23,6 @@ const userSchema = new Schema({
     }]
 })
 
-userSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-        returnedObject.id = returnedObject._id
-        //esta formula consigue que estos datos que aparecen con delete se borren de la información que se devuelve
-        //y no se muestren
-        delete returnedObject._id
-        delete returnedObject._v
-
-        delete returnedObject.passwordHash
-    }
-})
-
 const User = model('User', userSchema)
 
 
