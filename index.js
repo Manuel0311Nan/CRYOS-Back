@@ -29,20 +29,20 @@ server.use(express.urlencoded({ extended: true }));
 //?Con el asterisco se permite entrar en cualquier ruta de la web,
 //? Se podría delimitar la url a la que se quiere acceder
 server.use(cors());
+const serverListen = server.listen(PORT, () => {
+    console.log(`Node server listening on port http:${PORT}`)
+})
 
 //ROUTES
 router.get('/', (req, res) => {
     res.send('Server running OK')
 });
-
 server.use('/', router);
 server.use("/users", userRoutes);
 server.use("/books", bookRoutes);
 server.use("/consults", consultRoutes);
 
-const serverListen = server.listen(PORT, () => {
-    console.log(`Node server listening on port http:${PORT}`)
-})
+
 
 //-----------------Posibilidad de utilizar socket--------------------------------//
 
