@@ -4,6 +4,9 @@
     { "src": "*.js", 
     "use": "@vercel/node" }
 ],
+"headers": {
+  "Access-Control-Allow-Origin": {"origin":"https://www.cryos-cloud.preview-domain.com"}
+},
 "routes": [
     { "src": "/(.*)", "dest": "index.js" }
   ]
