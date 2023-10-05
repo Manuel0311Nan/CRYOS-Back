@@ -28,9 +28,11 @@ server.use(express.urlencoded({ extended: true }));
 //--------------------------------------------------------------------------------------------------------------------//
 //?Con el asterisco se permite entrar en cualquier ruta de la web,
 //? Se podría delimitar la url a la que se quiere acceder
-server.use(cors({
-    origin: ['https://www.cryos.cloud', 'https://www.cryos-cloud.preview-domain.com']
-}));
+server.use(cors('*'));
+// {
+//     // origin: ['https://www.cryos.cloud', 'https://www.cryos-cloud.preview-domain.com']
+    
+// }
 const serverListen = server.listen(PORT, () => {
     console.log(`Node server listening on port http:${PORT}`)
 })
